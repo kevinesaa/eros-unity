@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fb2439ffc6b43104c9df900d162ff77b
+timeCreated: 1517088936
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AvenirCondensedHand
+  fontNames:
+  - AvenirCondensedHand
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
