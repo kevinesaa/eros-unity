@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class PalabrasController : MonoBehaviour {
 
@@ -27,6 +28,8 @@ public class PalabrasController : MonoBehaviour {
     private int palabraCerebroActual = 0;
     private int aciertosCorazon = 0;
     private int aciertosCerebro = 0;
+    
+    private const string NOT_SPANISH_REGEX="[^a-zA-ZáéíñóúüÁÉÍÑÓÚÜ]";
 
     private void Awake()
     {
@@ -58,19 +61,19 @@ public class PalabrasController : MonoBehaviour {
             {
                 if (isCorazonError)
                 {
-
-                    SceneManager.LoadScene(2 );
-                    //final del cerebro
+					//final del cerebro
+                    SceneManager.LoadScene(2);
                 }
-                else {
-                    SceneManager.LoadScene(3 );
-                    //final del corazon
+                else 
+                {
+					//final del corazon
+                    SceneManager.LoadScene(3);
                 }
             }
-            else {
-                SceneManager.LoadScene( 4 );
-
-                //final Equilibrado
+            else 
+            {
+				//final Equilibrado
+                SceneManager.LoadScene( 4 );              
             }
             return;
         }
@@ -86,11 +89,7 @@ public class PalabrasController : MonoBehaviour {
 
     public void onValueChangeListener(string text)
     {
-        for(int i=0;i<10;i++)
-            text = text.Replace(i.ToString(), " ");
-
-        text =text.Split(' ')[0];
-       
+        text=Regex.Replace(text, NOT_SPANISH_REGEX, "");
         this.inputText.text = text.ToUpper();
     }
 
