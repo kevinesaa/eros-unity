@@ -11,12 +11,11 @@ public class PalabrasController : MonoBehaviour {
     public List<string> palabrasCerebro;
     public List<AudioClip> palabrasCorazonAudio;
     public List<AudioClip> palabrasCerebroAudio;
-
     public List<AudioClip> palabrasCorazonAudio2;
     public List<AudioClip> palabrasCerebroAudio2;
     public InputField inputText;
-    private AudioSource audioSource;
 
+    private AudioSource audioSource;
     private bool audio1;
     private bool isTurnoCorazon;
     private bool isError = false;
@@ -33,7 +32,7 @@ public class PalabrasController : MonoBehaviour {
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = gameObject.AddComponent<AudioSource>();
         isTurnoCorazon =Random.Range(0, 100) > 50;
         for (int i = 0; i < palabrasCerebro.Count; i++) {
             palabrasCerebro[i] = palabrasCerebro[i].ToUpper();
@@ -107,6 +106,7 @@ public class PalabrasController : MonoBehaviour {
 
         isTurnoCorazon = !isTurnoCorazon;
         isPlayerRespond = true;
+        this.inputText.text="";
     }
 
     private void actualizarPalabraCorazon(string inputText) {
